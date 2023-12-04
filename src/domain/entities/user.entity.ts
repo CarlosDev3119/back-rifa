@@ -1,11 +1,6 @@
 import { regularExps } from "../../config";
 import { CustomError } from "../errors/custom.errors";
 
-export enum StatusRole {
-    admin = 'ADMIN_ROLE',
-    user = 'USER_ROLE'
-}
-
 
 export class UserEntity {
 
