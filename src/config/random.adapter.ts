@@ -7,7 +7,7 @@ export class GenerateNumberRand {
 
         const buffer = crypto.randomBytes(3);
   
-        const numeroHexadecimal = buffer.toString('hex').slice(0, 5);;
+        const numeroHexadecimal = buffer.toString('hex').slice(0, 5);
         
         const numeroDecimal = parseInt(numeroHexadecimal, 16);
 
