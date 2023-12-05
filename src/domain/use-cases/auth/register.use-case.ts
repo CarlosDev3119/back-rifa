@@ -59,7 +59,11 @@ export class RegisterUser implements RegisterUserUseCase {
                     <h1>¡Hola!</h1>
                     <p>Hola me complace informate que tu boleto se ha registrado correctamente</p>
                     <h3>${register_number}.</h3>
+
+                    <h5>Por seguridad tomar una captura de pantalla del número de rifa.</h5>
+
                     <p>Recuerda que siempre puedes validar tu boleto en el sitio oficial.</p>
+                    <a href="https://front-rifa-production.up.railway.app/auth/login"> Link de la página de la rifa</a>
                 </div>
             </body>
             </html>
