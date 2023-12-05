@@ -34,8 +34,6 @@ export class EmailService {
     async sendEmail( options: SendMailOptions ): Promise<boolean> {
   
       const { to, subject, htmlBody, attachements = [] } = options;
-  
-  
       try {
   
   
