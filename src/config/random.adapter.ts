@@ -11,9 +11,9 @@ export class GenerateNumberRand {
         
         const numeroDecimal = parseInt(numeroHexadecimal, 16);
 
-        const numeroFinal = Math.min(numeroDecimal, 99999);
+        // const numeroFinal = Math.min(numeroDecimal, 99999);
         
-        return numeroFinal;
+        return numeroDecimal;
     }
 
 }
