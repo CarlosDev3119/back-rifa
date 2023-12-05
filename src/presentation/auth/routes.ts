@@ -20,6 +20,7 @@ export class AuthRoutes {
             envs.MAILER_EMAIL,
             envs.MAILER_SECRET_KEY
         )
+
         const datasource = new AuthDatasourceImpl();
         const authRepository = new AuthRepositoryImpl(datasource);
 

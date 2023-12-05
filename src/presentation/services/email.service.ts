@@ -21,7 +21,7 @@ export class EmailService {
       mailerEmail: string,
       senderEmailPassword: string,
     ) {
-      this.transporter = nodemailer.createTransport( {
+      this.transporter = nodemailer.createTransport({
           service: mailerService,
           auth: {
             user: mailerEmail,
@@ -37,13 +37,13 @@ export class EmailService {
       try {
   
   
-        await this.transporter.sendMail( {
+        const resp = await this.transporter.sendMail( {
           to: to,
           subject: subject,
           html: htmlBody,
           attachments: attachements,
         });
-  
+        console.log(resp);
   
         return true;
       } catch ( error ) {

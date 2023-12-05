@@ -13,7 +13,10 @@ export class UserDatasourceImpl implements UserDatasource {
 
             const userNumbers = await prisma.registros.findMany({
                 where: {
-                    status: '1'
+                    status: '1',
+                    register_number: {
+                        not: "2482258"
+                    }
                 },
                 select: {
                     id_user:true,

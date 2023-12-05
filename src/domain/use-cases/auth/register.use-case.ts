@@ -35,8 +35,10 @@ export class RegisterUser implements RegisterUserUseCase {
 
         const token = await this.signToken({id_user: user.id_user});
         if ( !token ) throw CustomError.internalServer('Error generating token');
-        await this.sendEmailValidate(user.email, user.register_number)
+        await this.sendEmailValidate(user.email, user.register_number);
+        
         const {password, ...restUser} = user;
+
         return {
             token: token,
             user: restUser
@@ -47,14 +49,6 @@ export class RegisterUser implements RegisterUserUseCase {
 
         
         const html = `
-            <!DOCTYPE html>
-            <html lang="es">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Prueba de correo</title>
-            </head>
-            <body>
                 <div>
                     <h1>¡Hola!</h1>
                     <p>Hola me complace informate que tu boleto se ha registrado correctamente</p>
@@ -65,8 +59,6 @@ export class RegisterUser implements RegisterUserUseCase {
                     <p>Recuerda que siempre puedes validar tu boleto en el sitio oficial.</p>
                     <a href="https://front-rifa-production.up.railway.app/auth/login"> Link de la página de la rifa</a>
                 </div>
-            </body>
-            </html>
             
         `;
 
@@ -77,6 +69,7 @@ export class RegisterUser implements RegisterUserUseCase {
         }
 
         const isSent = await this.emailService.sendEmail(options);
+        console.log(isSent);
         if(!isSent) throw CustomError.internalServer('Error sending email');
 
         return true;
